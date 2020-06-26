@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1585464905 source:c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"menu.h"
+	"dataentry.h"
+
+1585467741 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\menu.h
+	"fcfs.h"
+	"sjf.h"
+	"srtf.h"
+	"pp.h"
+	"npp.h"
+	"rr.h"
+	"comperative.h"
+
+1584781939 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\declaration.h
+
+1585638721 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\fcfs.h
+	"declaration.h"
+	"dataentry.h"
+	"sjf.h"
+
+1585638314 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\dataentry.h
+	"declaration.h"
+
+1585639219 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\sjf.h
+	"declaration.h"
+	"dataentry.h"
+	"srtf.h"
+
+1585639210 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\srtf.h
+	"declaration.h"
+	"dataentry.h"
+	"fcfs.h"
+
+1585639203 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\pp.h
+	"declaration.h"
+	"dataentry.h"
+	"npp.h"
+
+1585639372 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\npp.h
+	"declaration.h"
+	"dataentry.h"
+
+1585638136 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\rr.h
+	"declaration.h"
+	"dataentry.h"
+
+1585638535 c:\users\eco\onedrive - technological university of the philippines\programming stuffs\c projects\mentalbreakdown\comperative.h
+	"fcfs.h"
+	"srtf.h"
+	"sjf.h"
+	"pp.h"
+
