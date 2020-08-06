@@ -231,16 +231,18 @@ void processNPP_IOBurst(){
         int isIdle = 0;
 
         for(int i = 0; i < process->size; i++){
-            /*
+
+        /*
             printf("i : %i, current : %i , Ending : %i , AT : %i , Process : %i \n",i, current, process->E[current], processCPY->AT[i], process->isProcess[i]);
             char c;
-            scanf("%s",&c);
-            */
+            scanf("%s",&c);*/
+
             if(process->E[current] >= processCPY->AT[i] && i != current && !process->isProcess[i]){
                 if(process->P[i] < minP){
                     minP = process->P[i];
                     minPos = i;
-                    //printf("minPossss : %i \n", minPos);
+
+                    printf("minPossss : %i \n", minPos);
                 }
             }
 
@@ -249,11 +251,12 @@ void processNPP_IOBurst(){
             }
 
         }
+        int minAt = 10000;
 
         if(!isProcess && minPos == -1){
             for(int i = 0; i < process->size; i++){
-                if(minP > processCPY->AT[i] && i != current){
-                    minP = processCPY->AT[i];
+                if(processCPY->AT[i] < minAt && !process->isProcess[i]){
+                    minAt = processCPY->AT[i];
                     minPos = i;
                 }
             }
@@ -262,7 +265,7 @@ void processNPP_IOBurst(){
             printf("minPos : %i, minP : %i", minPos , minP);
             char c;
             scanf("%s",&c);*/
-            currentEnding = minP;
+            currentEnding = minAt;
             isIdle = 1;
         }
 
@@ -286,12 +289,12 @@ void processNPP_IOBurst(){
             processCPY->AT[minPos] = process->E[minPos] + process->IO[minPos];
             process->isIODone[minPos] = 1;
             process->currentProcess = minPos;
-            printf("XName: %s, S = %i, E = %i\n", process->name[minPos],process->S[minPos],process->E[minPos]);
+            //printf("XName: %s, S = %i, E = %i\n", process->name[minPos],process->S[minPos],process->E[minPos]);
         }else{
             process->E[minPos] = currentEnding + process->CPU_2[minPos];
             process->isProcess[minPos] = 1;
             process->currentProcess = minPos;
-            printf("YName: %s, S = %i, E = %i\n", process->name[minPos],process->S[minPos],process->E[minPos]);
+           // printf("YName: %s, S = %i, E = %i\n", process->name[minPos],process->S[minPos],process->E[minPos]);
         }
 
 
@@ -304,15 +307,18 @@ void processNPP_IOBurst(){
         if(isIdle){
             gant[gantSize] = -1;
             gantSize++;
-            gantEnding[gantEndingSize] = minP;
+            printf("minEnd = %i \n", process->E[current]);
+            printf("minAt = %i \n", minAt);
+            gantEnding[gantEndingSize] = minAt;
             gantEndingSize++;
         }
 
         /*
-        for(int i = 0; i < gantEndingSize; i++){
-            printf("gant : %i , gantEnding : %i \n", gant[i], gantEnding[i]);
-        }*/
-        /*
+        printf("min = %i \n", minPos);
+        for(int i = 0; i < process->size; i++){
+
+            printf("P%i = %i\n",i+1 , process->isProcess[i]);
+        }
         char c;
         scanf("%s",&c);*/
 
@@ -338,7 +344,7 @@ void processNPP_IOBurst(){
         aTAT += (float) process->TAT[i];
 
 
-        printf(" %s \t %i \t %i,%i,%i \t\t %i \t %i \t %i \t %i \t %i \t %i \n",
+        printf(" %s \t %i \t %i,%i,%i  \t %i \t %i \t %i \t %i \t %i \t %i \n",
                process->name[i], process->AT[i], process->CPU_1[i],process->IO[i],process->CPU_2[i],process->P[i],process->S[i]
                ,process->E[i],process->WT[i],process->RT[i],process->TAT[i]);
     }
@@ -354,8 +360,13 @@ void processNPP_IOBurst(){
 
         if(i != gantSize-1){
            int space = gantEnding[i+1] - gantEnding[i];
-           int adj_space = strlen(process->name[gant[i]]) + 1 + space;
+           int adj_space = 5 + space;
            int space_start = adj_space/2;
+
+           if(gant[i] != -1){
+            adj_space = strlen(process->name[gant[i]]) + 1 + space;
+            space_start = adj_space/2;
+           }
 
            for(int x = 0; x < space_start; x++){
              printf(" ");
@@ -371,8 +382,13 @@ void processNPP_IOBurst(){
            }
         }else{
            int space = gantEnding[i] - gantEnding[i-1];
-           int adj_space = strlen(process->name[gant[i]]) + 1 + space;
+           int adj_space =  5 + space;
            int space_start = adj_space/2;
+
+           if(gant[i] != -1){
+            adj_space = strlen(process->name[gant[i]]) + 1 + space;
+            space_start = adj_space/2;
+           }
 
            for(int x = 0; x < space_start; x++){
              printf(" ");
@@ -395,7 +411,10 @@ void processNPP_IOBurst(){
             printf("%i",gantEnding[i]);
             if(gantEnding[i] > 9)
                 space--;
-            int length = strlen(process->name[gant[i]]) + 1 + space;
+            int length = 3 + space;
+            if(gant[i] != -1)
+             length = strlen(process->name[gant[i]]) + 1 + space;
+
             SetColor("Bright White");
             for(int x = 0; x < length; x++){
                 printf("-");

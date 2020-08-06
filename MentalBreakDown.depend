@@ -54,3 +54,58 @@
 	"sjf.h"
 	"pp.h"
 
+1596699993 source:c:\repo\cpu-scheduling-c-programming\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"menu.h"
+	"dataentry.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\menu.h
+	"fcfs.h"
+	"sjf.h"
+	"srtf.h"
+	"pp.h"
+	"npp.h"
+	"rr.h"
+	"comperative.h"
+
+1596705596 c:\repo\cpu-scheduling-c-programming\fcfs.h
+	"declaration.h"
+	"dataentry.h"
+	"sjf.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\declaration.h
+
+1596702123 c:\repo\cpu-scheduling-c-programming\dataentry.h
+	"declaration.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\sjf.h
+	"declaration.h"
+	"dataentry.h"
+	"srtf.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\srtf.h
+	"declaration.h"
+	"dataentry.h"
+	"fcfs.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\pp.h
+	"declaration.h"
+	"dataentry.h"
+	"npp.h"
+
+1596709483 c:\repo\cpu-scheduling-c-programming\npp.h
+	"declaration.h"
+	"dataentry.h"
+
+1596702164 c:\repo\cpu-scheduling-c-programming\rr.h
+	"declaration.h"
+	"dataentry.h"
+
+1596699993 c:\repo\cpu-scheduling-c-programming\comperative.h
+	"fcfs.h"
+	"srtf.h"
+	"sjf.h"
+	"pp.h"
+

@@ -51,16 +51,14 @@ int burst = (process->TQ <= processCPY->BT[process->currentProcess]) ? process->
 
         for(int i = 0; i < process->size; i++){
 
-                  //  printf("hey = %i, e = %i, at = %i size = %i \n",i,process->E[current],processCPY->AT[i], process->size);
             if(process->E[current] >= processCPY->AT[i] && current != i){
-                  //  printf("hey = %i, e = %i, at = %i size = %i \n",i,process->E[current],processCPY->AT[i], process->size);
+
                 if(processCPY->AT[i] < minScore && processCPY->BT[i] != 0){
                     minScore = processCPY->AT[i];
                     minPos = i;
                 }
             }
         }
-
 
 
         if(minScore != 1000){

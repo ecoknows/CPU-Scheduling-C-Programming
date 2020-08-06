@@ -230,6 +230,7 @@ void EnterDataWithCopyRR(){
         inputText();
         scanf("%s%i%i",&process->name[i],&process->AT[i],&process->BT[i]);
         processCPY->BT[i] = process->BT[i];
+        processCPY->AT[i] = process->AT[i];
 
         process->isProcess[i] = 0;
         process->isFirst[i] = 1;
